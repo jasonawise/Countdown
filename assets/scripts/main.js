@@ -32,7 +32,12 @@ $(document).ready(function() {
     });
 
     $('.test').click(function() {
+        const countdown = $('.displayCountdown');
+
         console.log(selectedMonth.val());
+
+        //countdown.text(moment(selectedMonth.val()).format("MMM"));
+        //countdown.text(moment().format("ddd, hA"));
     });
 
 });
