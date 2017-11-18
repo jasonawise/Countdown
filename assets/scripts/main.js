@@ -25,11 +25,12 @@ $(document).ready(function() {
 
     }, 1000);
 
-    $('.month').change(function() {
+    const selectedMonth = $('.month').change(function() {
         //gets the selected month from the dropdown list
         const month = $('.month :selected').val();
-
-        console.log(month);
+        return month;
     });
+
+    console.log(selectedMonth);
 
 });
