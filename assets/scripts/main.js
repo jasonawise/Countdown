@@ -31,6 +31,8 @@ $(document).ready(function() {
         return month;
     });
 
-    console.log(selectedMonth);
+    $('.test').click(function() {
+        console.log(selectedMonth.val());
+    });
 
 });
