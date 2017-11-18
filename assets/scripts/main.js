@@ -7,8 +7,9 @@ $(document).ready(function() {
 
         //set the date we are counting down to
         const countDownDate = new Date("Jan 5, 2018").getTime();
+
         //get todays date
-        const now = new Date().getTime();
+        const now = moment();
 
         // Find the distance between now an the count down date
         const distance = countDownDate - now;
