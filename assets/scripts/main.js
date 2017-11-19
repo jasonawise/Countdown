@@ -51,9 +51,11 @@ $(document).ready(function() {
 
     $('.countdownClick').click(function() {
         const countdown = $('.displayCountdown');
-        const month = selectedMonth.val();
+        const month = selectedMonth.val() - 1;
         const day = selectedDay.val();
         const year = selectedYear.val();
+        const now = moment().format("MM DD YYYY");
+        //const future = moment(month, day, year).format("MM DD YYYY");
 
         //Set the number of days based on the month selected
         const daysInMonth = moment(selectedMonth.val()).daysInMonth();
@@ -62,8 +64,10 @@ $(document).ready(function() {
         console.log("Month: " + month);
         console.log("Day: " + day);
         console.log("Year: " + year);
-        //countdown.text(moment(selectedMonth.val()).format("MMM"));
+        countdown.text(moment([year, month, day]).fromNow());
         //countdown.text(moment().format("ddd, hA"));
+
+        //countdown.text(year);
     });
 
 });
