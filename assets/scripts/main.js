@@ -1,31 +1,31 @@
 $(document).ready(function() {
     console.log("ready!");
-    /*
-        var x = setInterval(function() {
-            //get display element
-            const countdown = $('.displayCountdown');
 
-            //set the date we are counting down to
-            const countDownDate = new Date("Jan 5, 2018").getTime();
+    function Countdown(d, m, y) {
 
-            //get todays date
-            const now = moment();
+        //get display element
+        const countdown = $('.displayCountdown');
 
-            // Find the distance between now an the count down date
-            const distance = countDownDate - now;
+        //set the date we are counting down to
+        const countDownDate = moment([y, m, d]);
 
-            // Time calculations for days, hours, minutes and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        //get todays date
+        const now = moment();
 
-            //Display the result
-            countdown.text(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+        // Find the distance between now an the count down date
+        const distance = countDownDate - now;
 
-        }, 1000);
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    */
+        //Display the result
+        countdown.text(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+
+
+    }
 
 
     //Gets the selected month from the user
@@ -55,19 +55,13 @@ $(document).ready(function() {
         const day = selectedDay.val();
         const year = selectedYear.val();
         const now = moment().format("MM DD YYYY");
-        //const future = moment(month, day, year).format("MM DD YYYY");
 
         //Set the number of days based on the month selected
         const daysInMonth = moment(selectedMonth.val()).daysInMonth();
 
-        console.log("Days in the month: " + daysInMonth);
-        console.log("Month: " + month);
-        console.log("Day: " + day);
-        console.log("Year: " + year);
-        countdown.text(moment([year, month, day]).fromNow());
-        //countdown.text(moment().format("ddd, hA"));
-
-        //countdown.text(year);
+        var x = setInterval(function() {
+            Countdown(day, month, year);
+        }, 1000);
     });
 
 });
