@@ -25,17 +25,22 @@ $(document).ready(function() {
 
     }, 1000);
 
+    //Gets the selected month from the user
     const selectedMonth = $('.month').change(function() {
         //gets the selected month from the dropdown list
         const month = $('.month :selected').val();
         return month;
     });
 
-    $('.test').click(function() {
+    $('.countdownClick').click(function() {
         const countdown = $('.displayCountdown');
 
-        console.log(selectedMonth.val());
 
+        //Set the number of days based on the month selected
+        const daysInMonth = moment(selectedMonth.val()).daysInMonth();
+
+        console.log("Days in the month: " + daysInMonth);
+        console.log("Month: " + selectedMonth.val());
         //countdown.text(moment(selectedMonth.val()).format("MMM"));
         //countdown.text(moment().format("ddd, hA"));
     });
