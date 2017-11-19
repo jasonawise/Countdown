@@ -32,6 +32,20 @@ $(document).ready(function() {
         return month;
     });
 
+    //Gets the selected day from the user
+    const selectedDay = $('.day').change(function() {
+        //gets the selected month from the dropdown list
+        const day = $('.day :selected').val();
+        return day;
+    });
+
+    //Gets the selected year from the user
+    const selectedYear = $('.year').change(function() {
+        //gets the selected month from the dropdown list
+        const year = $('.year :selected').val();
+        return year;
+    });
+
     $('.countdownClick').click(function() {
         const countdown = $('.displayCountdown');
 
@@ -41,6 +55,8 @@ $(document).ready(function() {
 
         console.log("Days in the month: " + daysInMonth);
         console.log("Month: " + selectedMonth.val());
+        console.log("Day: " + selectedDay.val());
+        console.log("Year: " + selectedYear.val());
         //countdown.text(moment(selectedMonth.val()).format("MMM"));
         //countdown.text(moment().format("ddd, hA"));
     });
